@@ -1,0 +1,42 @@
+package ru.mirea.gradebook.entities;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Data
+@Entity
+@Table
+@NoArgsConstructor
+public class Exam {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "subject_id", referencedColumnName = "id")
+    private Subject subject;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
+    private Teacher teacher;
+
+    private String mark;
+
+    public Exam(User user, Subject subject, Teacher teacher, String mark, Date date) {
+        this.user = user;
+        this.subject = subject;
+        this.teacher = teacher;
+        this.mark = mark;
+        this.date = date;
+    }
+
+    private Date date;
+}
