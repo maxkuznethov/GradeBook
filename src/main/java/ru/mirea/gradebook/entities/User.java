@@ -1,14 +1,13 @@
 package ru.mirea.gradebook.entities;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
 @Data
-@Table(name = "users")
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 @Entity
 public class User {
     @Id
@@ -19,7 +18,7 @@ public class User {
     private String email;
     private String number;
     private String password;
-    private String group;
+    private String studyGroup;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
@@ -30,15 +29,15 @@ public class User {
                     name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch=FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
     private List<Exam> exams;
 
-    public User(String name, String email, String number, String password, String group, Collection<Role> roles) {
+    public User(String name, String email, String number, String password, String studyGroup, Collection<Role> roles) {
         this.name = name;
         this.email = email;
         this.number = number;
         this.password = password;
-        this.group = group;
+        this.studyGroup = studyGroup;
         this.roles = roles;
     }
 

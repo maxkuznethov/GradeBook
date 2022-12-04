@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Data
 @Entity
@@ -39,7 +38,6 @@ public class Exam {
     }
 
     private String date;
-
 
 
 }

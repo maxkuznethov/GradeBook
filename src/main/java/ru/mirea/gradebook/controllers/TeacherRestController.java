@@ -1,7 +1,6 @@
 package ru.mirea.gradebook.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import ru.mirea.gradebook.entities.Subject;
 import ru.mirea.gradebook.entities.Teacher;
 import ru.mirea.gradebook.services.TeacherService;
 
@@ -16,7 +15,7 @@ public class TeacherRestController {
     }
 
     @GetMapping("teacher/get")
-    public List<Teacher> getAllTeachers(){
+    public List<Teacher> getAllTeachers() {
         return teacherService.getAllTeachers();
     }
 
@@ -26,12 +25,12 @@ public class TeacherRestController {
     }
 
     @PutMapping("teacher/update")
-    public Teacher updateTeacher(@RequestBody Teacher teacher){
+    public Teacher updateTeacher(@RequestBody Teacher teacher) {
         return teacherService.updateTeacher(teacher);
     }
 
     @DeleteMapping("teacher/delete/{id}")
-    public void deleteTeacher(@PathVariable Long id){
+    public void deleteTeacher(@PathVariable Long id) {
         teacherService.deleteTeacher(id);
     }
 }

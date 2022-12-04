@@ -15,7 +15,7 @@ public class SubjectRestController {
     }
 
     @GetMapping("subject/get")
-    public List<Subject> getAllSubjects(){
+    public List<Subject> getAllSubjects() {
         return subjectService.getAllSubjects();
     }
 
@@ -25,12 +25,12 @@ public class SubjectRestController {
     }
 
     @PutMapping("subject/update")
-    public Subject updateSubject(@RequestBody Subject subject){
+    public Subject updateSubject(@RequestBody Subject subject) {
         return subjectService.updateSubject(subject);
     }
 
     @DeleteMapping("subject/delete/{id}")
-    public void deleteSubject(@PathVariable Long id){
+    public void deleteSubject(@PathVariable Long id) {
         subjectService.deleteSubject(id);
     }
 

@@ -14,7 +14,7 @@ public class SubjectService {
         this.subjectRepository = subjectRepository;
     }
 
-    public List<Subject> getAllSubjects(){
+    public List<Subject> getAllSubjects() {
         return subjectRepository.findAll();
     }
 
@@ -36,7 +36,7 @@ public class SubjectService {
         return subjectRepository.save(subjectToUpdate);
     }
 
-    public void deleteSubject(Long id){
+    public void deleteSubject(Long id) {
         subjectRepository.deleteById(id);
     }
 

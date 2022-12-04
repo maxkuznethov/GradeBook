@@ -22,12 +22,17 @@ public class ExamRestController {
     }
 
     @PutMapping("exam/changeMark/{id}")
-    public ExamResponseDTO changeMark(@RequestBody Map<String, String> mark, @PathVariable Long id){
-       return examService.changeMark(mark, id);
+    public ExamResponseDTO changeMark(@RequestBody Map<String, String> mark, @PathVariable Long id) {
+        return examService.changeMark(mark, id);
     }
 
     @GetMapping("exam/get/{id}")
-    public List<ExamResponseDTO> getAllExams(@PathVariable Long id){
+    public List<ExamResponseDTO> getAllExams(@PathVariable Long id) {
         return examService.getExams(id);
+    }
+
+    @GetMapping("exam/get")
+    public List<ExamResponseDTO> getCurrentUserExams() {
+        return examService.getCurrentUserExams();
     }
 }

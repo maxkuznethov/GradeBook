@@ -15,7 +15,7 @@ public class TeacherService {
     }
 
 
-    public List<Teacher> getAllTeachers(){
+    public List<Teacher> getAllTeachers() {
         return teacherRepository.findAll();
     }
 
@@ -32,7 +32,7 @@ public class TeacherService {
         return teacherRepository.save(teacherToUpdate);
     }
 
-    public void deleteTeacher(Long id){
+    public void deleteTeacher(Long id) {
         teacherRepository.deleteById(id);
     }
 }

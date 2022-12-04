@@ -1,5 +1,7 @@
 package ru.mirea.gradebook.services;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import ru.mirea.gradebook.dto.ExamRequestDTO;
 import ru.mirea.gradebook.dto.ExamResponseDTO;
@@ -21,7 +23,8 @@ public class ExamService {
     private final UserRepository userRepository;
 
 
-    public ExamService(ExamRepository examRepository, SubjectRepository subjectRepository, TeacherRepository teacherRepository, UserRepository userRepository) {
+    public ExamService(ExamRepository examRepository, SubjectRepository subjectRepository,
+                       TeacherRepository teacherRepository, UserRepository userRepository) {
         this.examRepository = examRepository;
         this.subjectRepository = subjectRepository;
         this.teacherRepository = teacherRepository;
@@ -37,7 +40,7 @@ public class ExamService {
         return examRequestDTO;
     }
 
-    public ExamResponseDTO changeMark(Map<String, String> newMark, Long id){
+    public ExamResponseDTO changeMark(Map<String, String> newMark, Long id) {
         Exam exam = examRepository.getReferenceById(id);
         exam.setMark(newMark.get("mark"));
         examRepository.save(exam);
@@ -64,5 +67,10 @@ public class ExamService {
                     exam.getDate()));
         });
         return examsResponse;
+    }
+
+    public List<ExamResponseDTO> getCurrentUserExams() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return getExams(userRepository.findByEmail(auth.getName()).getId());
     }
 }
