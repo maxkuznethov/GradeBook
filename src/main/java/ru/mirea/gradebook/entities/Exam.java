@@ -30,7 +30,7 @@ public class Exam {
 
     private String mark;
 
-    public Exam(User user, Subject subject, Teacher teacher, String mark, Date date) {
+    public Exam(User user, Subject subject, Teacher teacher, String mark, String date) {
         this.user = user;
         this.subject = subject;
         this.teacher = teacher;
@@ -38,5 +38,8 @@ public class Exam {
         this.date = date;
     }
 
-    private Date date;
+    private String date;
+
+
+
 }

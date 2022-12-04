@@ -20,5 +20,6 @@ public class Subject {
     }
 
     private String name;
+    private Integer term;
     private Integer hours;
 }
