@@ -7,10 +7,10 @@ import ru.mirea.gradebook.dto.UserRegistrationDTO;
 import ru.mirea.gradebook.services.UserService;
 
 @RestController
-public class UserRestController {
+public class UserController {
     private final UserService userService;
 
-    public UserRestController(UserService userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 

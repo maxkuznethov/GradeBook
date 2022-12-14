@@ -7,10 +7,10 @@ import ru.mirea.gradebook.services.SubjectService;
 import java.util.List;
 
 @RestController
-public class SubjectRestController {
+public class SubjectController {
     private final SubjectService subjectService;
 
-    public SubjectRestController(SubjectService subjectService) {
+    public SubjectController(SubjectService subjectService) {
         this.subjectService = subjectService;
     }
 

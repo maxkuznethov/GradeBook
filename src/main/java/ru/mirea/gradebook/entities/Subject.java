@@ -14,11 +14,6 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Subject(String name, Integer hours) {
-        this.name = name;
-        this.hours = hours;
-    }
-
     private String name;
     private Integer term;
     private Integer hours;

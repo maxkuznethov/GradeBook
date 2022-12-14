@@ -7,10 +7,10 @@ import ru.mirea.gradebook.services.TeacherService;
 import java.util.List;
 
 @RestController
-public class TeacherRestController {
+public class TeacherController {
     private final TeacherService teacherService;
 
-    public TeacherRestController(TeacherService teacherService) {
+    public TeacherController(TeacherService teacherService) {
         this.teacherService = teacherService;
     }
 

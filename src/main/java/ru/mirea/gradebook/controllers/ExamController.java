@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-public class ExamRestController {
+public class ExamController {
     private final ExamService examService;
 
-    public ExamRestController(ExamService examService) {
+    public ExamController(ExamService examService) {
         this.examService = examService;
     }
 
